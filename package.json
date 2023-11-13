@@ -1,0 +1,16 @@
+{
+  "name": "eCommerce",
+  "version": "1.0.0",
+  "description": "API's for E-commerce application",
+  "main": "server.js",
+  "type": "module",
+  "scripts": {
+    "start": "nodemon server.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "JoyCode4",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.18.2"
+  }
+}
