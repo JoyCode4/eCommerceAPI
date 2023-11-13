@@ -7,4 +7,5 @@ const router = express.Router();
 
 router.get("/", productController.getAllProducts);
 router.post("/", upload.single("imageUrl"), productController.addProduct);
+router.get("/:id", productController.getOneProduct);
 export default router;

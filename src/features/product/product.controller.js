@@ -18,7 +18,7 @@ export default class ProductController {
       sizes: sizes.split(","),
     };
     const createdProduct = ProductModel.add(newProduct);
-    res.status(200).json({
+    res.status(201).json({
       message: "Product added successfully",
       product: createdProduct,
     });
@@ -26,5 +26,16 @@ export default class ProductController {
 
   rateProduct(req, res) {}
 
-  getOneProduct(req, res) {}
+  getOneProduct(req, res) {
+    const id = req.params.id;
+    const product = ProductModel.get(id);
+    if (!product) {
+      return res.status(404).json({
+        message: "Product not found...",
+      });
+    }
+    res.status(200).json({
+      product,
+    });
+  }
 }
