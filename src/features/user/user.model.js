@@ -30,7 +30,7 @@ export default class UserModel {
     return user;
   }
 
-  static get() {
+  static getAll() {
     return users;
   }
 }

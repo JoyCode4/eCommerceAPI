@@ -19,7 +19,7 @@ export default class UserController {
   }
 
   get(req, res) {
-    const users = UserModel.get();
+    const users = UserModel.getAll();
     res.status(200).json(users);
   }
 }
