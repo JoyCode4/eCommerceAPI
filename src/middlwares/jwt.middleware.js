@@ -7,6 +7,7 @@ const jwtAuth = (req, res, next) => {
 
   try {
     const payload = jwt.verify(token, "eCommerce");
+    req.userId = payload.userId;
   } catch (e) {
     if (e) {
       return res.status(401).send("Unauthorized Access");
