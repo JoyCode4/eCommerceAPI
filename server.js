@@ -7,6 +7,7 @@ import UserRouter from "./src/features/user/user.routes.js";
 import CartRouter from "./src/features/cart/cart.routes.js";
 // import basicAuth from "./src/middlwares/basicAuth.middleware.js";
 import jwtAuth from "./src/middlwares/jwt.middleware.js";
+import connectToMongoDB from "./src/config/mongodb.js";
 const port = 8000;
 const server = express();
 server.use(cors());
@@ -27,4 +28,5 @@ server.use((req, res) => {
 
 server.listen(port, () => {
   console.log("server listening on port: " + port);
+  connectToMongoDB();
 });
