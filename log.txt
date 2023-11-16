@@ -1,0 +1,9 @@
+Thu Nov 16 2023 18:12:31 GMT+0530 (India Standard Time) - Log Data: / - {}
+ Thu Nov 16 2023 18:12:42 GMT+0530 (India Standard Time) - Log Data: / - {}
+ Thu Nov 16 2023 18:12:51 GMT+0530 (India Standard Time) - Log Data: /api/users - {}
+ Thu Nov 16 2023 18:13:19 GMT+0530 (India Standard Time) - Log Data: /api/products - {}
+ Thu Nov 16 2023 18:13:24 GMT+0530 (India Standard Time) - Log Data: /api/products - {}
+ Thu Nov 16 2023 18:13:49 GMT+0530 (India Standard Time) - Log Data: /api/cart/ - {}
+ Thu Nov 16 2023 18:14:04 GMT+0530 (India Standard Time) - Log Data: /api/users/signIn - {"email":"john@example.com","password":"password1"}
+ Thu Nov 16 2023 18:14:31 GMT+0530 (India Standard Time) - Log Data: /api/products/ - {}
+ Thu Nov 16 2023 18:27:22 GMT+0530 (India Standard Time) - Log Data: / - {}
