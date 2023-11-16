@@ -1,0 +1,1 @@
+{"level":"error","message":"/api/products/rate?userId=1&productId=1&ratings=3 - Errors TypeError: Cannot read properties of undefined (reading 'userId')","service":"request-logging"}
