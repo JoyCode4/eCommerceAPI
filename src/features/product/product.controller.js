@@ -29,17 +29,21 @@ export default class ProductController {
     }
   }
 
-  rateProduct(req, res) {
-    const ratings = req.query.ratings;
-    const userId = req.query.userId;
-    const productId = req.query.productId;
+  async rateProduct(req, res) {
+    try {
+      const ratings = req.query.ratings;
+      const userId = req.userId;
+      const productId = req.query.productId;
+      const err = await ProductRepository.rate(userId, productId, ratings);
 
-    const err = ProductModel.rate(userId, productId, ratings);
-
-    if (err) {
-      return res.status(400).send(err);
+      if (err) {
+        return res.status(400).send(err);
+      }
+      return res.status(200).send("Done rating");
+    } catch (err) {
+      console.log(err);
+      return res.status(500).send("Something went Wrong!");
     }
-    res.status(200).send("Done rating");
   }
 
   async getOneProduct(req, res) {
@@ -53,12 +57,19 @@ export default class ProductController {
     res.status(200).send(product);
   }
 
-  filterProducts(req, res) {
-    const minPrice = req.query.minPrice;
-    const maxPrice = req.query.maxPrice;
-    const category = req.query.category;
-
-    const result = ProductModel.filter(minPrice, maxPrice, category);
-    res.status(200).json(result);
+  async filterProducts(req, res) {
+    try {
+      const minPrice = parseFloat(req.query.minPrice);
+      const maxPrice = parseFloat(req.query.maxPrice);
+      const category = req.query.category;
+      const result = await ProductRepository.filter(
+        minPrice,
+        maxPrice,
+        category
+      );
+      return res.status(200).send(result);
+    } catch (err) {
+      return res.status(500).send("Something went Wrong!");
+    }
   }
 }
