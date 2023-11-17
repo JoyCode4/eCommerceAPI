@@ -1,3 +1,4 @@
+import "./env.js";
 import express from "express";
 import bodyParser from "body-parser";
 import cors from "cors";
@@ -10,6 +11,7 @@ import jwtAuth from "./src/middlwares/jwt.middleware.js";
 import connectToMongoDB from "./src/config/mongodb.js";
 const port = 8000;
 const server = express();
+
 server.use(cors());
 server.use(bodyParser.json());
 

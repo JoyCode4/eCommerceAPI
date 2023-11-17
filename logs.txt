@@ -35,3 +35,14 @@
 {"level":"info","message":"/api/users/signIn - {\"email\":\"j@2.com\",\"password\":\"123\"}","service":"request-logging"}
 {"level":"info","message":"/api/users/signup - {\"name\":\"Jayesh\",\"email\":\"j@2.com\",\"password\":\"123\",\"type\":\"seller\"}","service":"request-logging"}
 {"level":"info","message":"/api/users/signup - {\"name\":\"Jayesh\",\"email\":\"j@5.com\",\"password\":\"123\",\"type\":\"seller\"}","service":"request-logging"}
+{"level":"info","message":"/api/users/signIn - {\"email\":\"j@2.co\",\"password\":\"123\"}","service":"request-logging"}
+{"level":"info","message":"/api/users/signIn - {\"email\":\"j@2.com\",\"password\":\"1234\"}","service":"request-logging"}
+{"level":"info","message":"/api/users/signIn - {\"email\":\"j@2.com\",\"password\":\"123\"}","service":"request-logging"}
+{"level":"info","message":"/api/users/signIn - {\"email\":\"j@5.com\",\"password\":\"123\"}","service":"request-logging"}
+{"level":"info","message":"/api/users/signIn - {\"email\":\"j@2.com\",\"password\":\"123\"}","service":"request-logging"}
+{"level":"info","message":"/api/users/signup - {\"name\":\"Jayesh W\",\"email\":\"j@1.com\",\"password\":\"123\",\"type\":\"customer\"}","service":"request-logging"}
+{"level":"info","message":"/api/users/signIn - {\"email\":\"j@1.com\",\"password\":\"123\"}","service":"request-logging"}
+{"level":"info","message":"/api/users/signIn - {\"email\":\"j@1.com\",\"password\":\"123\"}","service":"request-logging"}
+{"level":"info","message":"/api/users/signIn - {\"email\":\"j@5.com\",\"password\":\"123\"}","service":"request-logging"}
+{"level":"info","message":"/api/users/signup - {\"name\":\"Jayesh W\",\"email\":\"j@2.com\",\"password\":\"123\",\"type\":\"customer\"}","service":"request-logging"}
+{"level":"info","message":"/api/users/signIn - {\"email\":\"j@2.com\",\"password\":\"123\"}","service":"request-logging"}

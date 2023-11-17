@@ -32,7 +32,7 @@ export default class UserController {
         if (result) {
           const token = jwt.sign(
             { userId: user.id, email: user.email },
-            "eCommerce",
+            process.env.JWT_SECRET,
             {
               expiresIn: "2h",
             }
