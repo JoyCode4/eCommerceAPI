@@ -1,27 +1,32 @@
 import ProductModel from "./product.model.js";
+import ProductRepository from "./product.repository.js";
 
 export default class ProductController {
-  getAllProducts(req, res) {
-    const products = ProductModel.getAll();
+  async getAllProducts(req, res) {
+    const products = await ProductRepository.getAll();
     res.status(200).send(products);
   }
 
-  addProduct(req, res) {
-    const { name, desc, category, price, sizes } = req.body;
-    console.log(req.file.filename);
-    const newProduct = {
-      name,
-      desc,
-      imageUrl: req.file.filename,
-      category,
-      price: parseFloat(price),
-      sizes: sizes.split(","),
-    };
-    const createdProduct = ProductModel.add(newProduct);
-    res.status(201).json({
-      message: "Product added successfully",
-      product: createdProduct,
-    });
+  async addProduct(req, res) {
+    try {
+      const { name, desc, category, price, sizes } = req.body;
+      console.log(req.file.filename);
+      const newProduct = {
+        name,
+        desc,
+        imageUrl: req.file.filename,
+        category,
+        price: parseFloat(price),
+        sizes: sizes.split(","),
+      };
+      const createdProduct = await ProductRepository.add(newProduct);
+      res.status(201).send({
+        message: "Product added successfully",
+        product: createdProduct,
+      });
+    } catch (err) {
+      res.status(500).send("Something went Wrong!");
+    }
   }
 
   rateProduct(req, res) {
@@ -37,17 +42,15 @@ export default class ProductController {
     res.status(200).send("Done rating");
   }
 
-  getOneProduct(req, res) {
+  async getOneProduct(req, res) {
     const id = req.params.id;
-    const product = ProductModel.get(id);
+    const product = await ProductRepository.get(id);
     if (!product) {
       return res.status(404).json({
         message: "Product not found...",
       });
     }
-    res.status(200).json({
-      product,
-    });
+    res.status(200).send(product);
   }
 
   filterProducts(req, res) {
