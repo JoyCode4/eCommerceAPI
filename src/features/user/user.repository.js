@@ -12,11 +12,11 @@ export default class UserRepository {
     }
   }
 
-  static async signIn(email, password) {
+  static async signIn(email) {
     try {
       const db = getDB();
       const collection = db.collection("users");
-      return await collection.findOne({ email, password });
+      return await collection.findOne({ email });
     } catch (err) {
       throw new Error(err);
     }
