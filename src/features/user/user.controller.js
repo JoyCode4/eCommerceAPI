@@ -48,9 +48,4 @@ export default class UserController {
       return res.status(500).send("Something Went wrong");
     }
   }
-
-  get(req, res) {
-    const users = UserModel.getAll();
-    res.status(200).json(users);
-  }
 }

@@ -1,13 +1,12 @@
 import { ObjectId } from "mongodb";
 import { getDB } from "../../config/mongodb.js";
 
-const collectionDBProduct = "products";
-const collectionDBUser = "users";
+const collectionDB = "products";
 export default class ProductRepository {
   static async getAll() {
     try {
       const db = getDB();
-      const collection = db.collection(collectionDBProduct);
+      const collection = db.collection(collectionDB);
       const products = await collection.find({}).toArray();
       return products;
     } catch (err) {
@@ -18,7 +17,7 @@ export default class ProductRepository {
   static async get(id) {
     try {
       const db = getDB();
-      const collection = db.collection(collectionDBProduct);
+      const collection = db.collection(collectionDB);
       const product = await collection.findOne({ _id: new ObjectId(id) });
       return product;
     } catch (err) {
@@ -29,7 +28,7 @@ export default class ProductRepository {
   static async add(newProduct) {
     try {
       const db = getDB();
-      const collection = db.collection(collectionDBProduct);
+      const collection = db.collection(collectionDB);
       await collection.insertOne(newProduct);
       return newProduct;
     } catch (err) {
@@ -40,7 +39,7 @@ export default class ProductRepository {
   static async filter(minPrice, maxPrice, category) {
     try {
       const db = getDB();
-      const collection = db.collection(collectionDBProduct);
+      const collection = db.collection(collectionDB);
       const filterExpression = {};
       if (minPrice) {
         filterExpression.price = { $gte: minPrice };
@@ -61,7 +60,7 @@ export default class ProductRepository {
   static async rate(userId, productId, rating) {
     try {
       const db = getDB();
-      const collectionProduct = db.collection(collectionDBProduct);
+      const collectionProduct = db.collection(collectionDB);
 
       // const product = await collectionProduct.findOne({
       //   _id: new ObjectId(productId),
