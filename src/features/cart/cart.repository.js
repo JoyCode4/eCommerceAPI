@@ -7,11 +7,23 @@ export default class CartRepository {
     try {
       const db = getDB();
       const collection = db.collection(collectionDB);
-      await collection.insertOne({
-        productId: new ObjectId(productId),
-        userId: new ObjectId(userId),
-        quantity,
-      });
+      await collection.updateOne(
+        {
+          productId: new ObjectId(productId),
+          userId: new ObjectId(userId),
+        },
+        {
+          $inc: {
+            quantity: quantity,
+          },
+        },
+        { upsert: true }
+      );
+      // await collection.insertOne({
+      //   productId: new ObjectId(productId),
+      //   userId: new ObjectId(userId),
+      //   quantity,
+      // });
     } catch (err) {
       throw new Error(err);
     }
