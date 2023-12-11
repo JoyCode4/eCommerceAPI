@@ -120,4 +120,22 @@ export default class ProductRepository {
       throw new Error(err);
     }
   }
+  static async averageProductPricePerCategory() {
+    try {
+      const db = getDB();
+      return await db
+        .collection("products")
+        .aggregate([
+          {
+            $group: {
+              _id: "$category",
+              averagePrice: { $avg: "$price" },
+            },
+          },
+        ])
+        .toArray();
+    } catch (err) {
+      throw new Error(err);
+    }
+  }
 }
