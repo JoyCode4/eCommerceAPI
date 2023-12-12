@@ -80,4 +80,22 @@ export default class ProductController {
       return res.status(500).send("Something went Wrong!" + err);
     }
   }
+
+  async getAverageRating(req, res) {
+    try {
+      const result = await ProductRepository.averageRating();
+      return res.status(200).send(result);
+    } catch (err) {
+      return res.status(500).send("Something went Wrong!");
+    }
+  }
+
+  async getCountOfRatings(req, res) {
+    try {
+      const result = await ProductRepository.countOfRating();
+      return res.status(200).send(result);
+    } catch (err) {
+      return res.status(500).send("Something went Wrong!");
+    }
+  }
 }

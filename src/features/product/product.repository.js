@@ -138,4 +138,65 @@ export default class ProductRepository {
       throw new Error(err);
     }
   }
+
+  static async averageRating() {
+    try {
+      const db = getDB();
+      const result = await db
+        .collection("products")
+        .aggregate([
+          {
+            $unwind: "$ratings",
+          },
+          {
+            $group: {
+              _id: "$name",
+              averageRating: {
+                $avg: "$ratings.rating",
+              },
+            },
+          },
+        ])
+        .toArray();
+
+      return result;
+    } catch (err) {
+      throw new Error(err);
+    }
+  }
+
+  static async countOfRating() {
+    try {
+      const db = getDB();
+      const result = await db
+        .collection("products")
+        .aggregate([
+          {
+            $project: {
+              name: 1,
+              countOfRating: {
+                $cond: {
+                  if: { $isArray: "$ratings" },
+                  then: { $size: "$ratings" },
+                  else: 0,
+                },
+              },
+            },
+          },
+          {
+            $sort: {
+              countOfRating: -1,
+            },
+          },
+          {
+            $limit: 1,
+          },
+        ])
+        .toArray();
+
+      return result;
+    } catch (err) {
+      throw new Error(err);
+    }
+  }
 }
