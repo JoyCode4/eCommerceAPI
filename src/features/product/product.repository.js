@@ -124,7 +124,7 @@ export default class ProductRepository {
     try {
       const db = getDB();
       return await db
-        .collection("products")
+        .collection(collectionDB)
         .aggregate([
           {
             $group: {
@@ -143,7 +143,7 @@ export default class ProductRepository {
     try {
       const db = getDB();
       const result = await db
-        .collection("products")
+        .collection(collectionDB)
         .aggregate([
           {
             $unwind: "$ratings",
@@ -169,7 +169,7 @@ export default class ProductRepository {
     try {
       const db = getDB();
       const result = await db
-        .collection("products")
+        .collection(collectionDB)
         .aggregate([
           {
             $project: {
