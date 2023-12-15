@@ -408,3 +408,7 @@
 {"level":"info","message":"/api/carts - {\"productId\":\"65572a524b601232e30868dc\",\"quantity\":5}","service":"request-logging"}
 {"level":"info","message":"/api/carts - {\"productId\":\"65774e766be967d8f95207ee\",\"quantity\":7}","service":"request-logging"}
 {"level":"info","message":"/api/orders - {}","service":"request-logging"}
+{"level":"info","message":"/api/users/signup - {\"name\":\"Jay Wadhonkar\",\"email\":\"j@3.com\",\"password\":\"123\",\"type\":\"customer\"}","service":"request-logging"}
+{"level":"info","message":"/api/users/signup - {\"name\":\"Jay Wadhonkar\",\"email\":\"j@3.com\",\"password\":\"123\",\"type\":\"customer\"}","service":"request-logging"}
+{"level":"info","message":"/api/users/signup - {\"name\":\"Jay Wadhonkar\",\"email\":\"j@3.com\",\"password\":\"123\",\"type\":\"Customer\"}","service":"request-logging"}
+{"level":"info","message":"/api/users/signIn - {\"email\":\"j@3.com\",\"password\":\"123\"}","service":"request-logging"}

@@ -1,12 +1,12 @@
-import { getDB } from "../../config/mongodb.js";
+import mongoose from "mongoose";
+import { userSchema } from "./user.schema.js";
+const UserModel = mongoose.model("User", userSchema);
 
-const collectionDB = "users";
 export default class UserRepository {
-  static async signUp(newUser) {
+  static async signUp(user) {
     try {
-      const db = getDB();
-      const collection = db.collection(collectionDB);
-      await collection.insertOne(newUser);
+      const newUser = new UserModel(user);
+      newUser.save();
       return newUser;
     } catch (err) {
       throw new Error(err);
@@ -15,9 +15,8 @@ export default class UserRepository {
 
   static async signIn(email) {
     try {
-      const db = getDB();
-      const collection = db.collection(collectionDB);
-      return await collection.findOne({ email });
+      const user = await UserModel.findOne({ email });
+      return user;
     } catch (err) {
       throw new Error(err);
     }
