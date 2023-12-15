@@ -48,4 +48,22 @@ export default class UserController {
       return res.status(500).send("Something Went wrong");
     }
   }
+
+  async resetPassword(req, res) {
+    const { newPass, cNewPass } = req.body;
+    if (cNewPass !== newPass) {
+      return res
+        .status(500)
+        .send("new password and confirm new password should be same");
+    }
+    const userId = req.userId;
+    const hashedPassword = bcrypt.hashSync(newPass, 12);
+    try {
+      await UserRepository.resetPassword(userId, hashedPassword);
+      return res.status(202).send("password is been updated!");
+    } catch (err) {
+      console.log(err);
+      return res.status(500).send("Something Went wrong");
+    }
+  }
 }

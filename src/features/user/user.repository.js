@@ -21,4 +21,18 @@ export default class UserRepository {
       throw new Error(err);
     }
   }
+
+  static async resetPassword(id, password) {
+    try {
+      const user = await UserModel.findById(id);
+      if (user) {
+        user.password = password;
+        user.save();
+      } else {
+        throw new Error(err);
+      }
+    } catch (err) {
+      throw new Error(err);
+    }
+  }
 }

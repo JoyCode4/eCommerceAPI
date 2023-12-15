@@ -412,3 +412,15 @@
 {"level":"info","message":"/api/users/signup - {\"name\":\"Jay Wadhonkar\",\"email\":\"j@3.com\",\"password\":\"123\",\"type\":\"customer\"}","service":"request-logging"}
 {"level":"info","message":"/api/users/signup - {\"name\":\"Jay Wadhonkar\",\"email\":\"j@3.com\",\"password\":\"123\",\"type\":\"Customer\"}","service":"request-logging"}
 {"level":"info","message":"/api/users/signIn - {\"email\":\"j@3.com\",\"password\":\"123\"}","service":"request-logging"}
+{"level":"info","message":"/api/users/signIn - {\"email\":\"j@3.com\",\"password\":\"123\"}","service":"request-logging"}
+{"level":"info","message":"/api/users/resetpassword - {\"newPass\":\"1234\",\"cnewPass\":\"123\"}","service":"request-logging"}
+{"level":"info","message":"/api/users/resetpassword - {\"newPass\":\"1234\",\"cnewPass\":\"1234\"}","service":"request-logging"}
+{"level":"info","message":"/api/users/resetpassword - {\"newPass\":\"1234\",\"cNewPass\":\"123\"}","service":"request-logging"}
+{"level":"info","message":"/api/users/resetpassword - {\"newPass\":\"1234\",\"cNewPass\":\"1234\"}","service":"request-logging"}
+{"level":"info","message":"/api/users/resetpassword - {\"newPass\":\"1234\",\"cNewPass\":\"1234\"}","service":"request-logging"}
+{"level":"info","message":"/api/users/signIn - {\"email\":\"j@3.com\",\"password\":\"123\"}","service":"request-logging"}
+{"level":"info","message":"/api/users/signIn - {\"email\":\"j@3.com\",\"password\":\"1234\"}","service":"request-logging"}
+{"level":"info","message":"/api/users/resetpassword - {\"newPass\":\"1234\",\"cNewPass\":\"123\"}","service":"request-logging"}
+{"level":"info","message":"/api/users/resetpassword - {\"newPass\":\"1234\",\"cNewPass\":\"123\"}","service":"request-logging"}
+{"level":"info","message":"/api/users/resetpassword - {\"newPass\":\"123\",\"cNewPass\":\"123\"}","service":"request-logging"}
+{"level":"info","message":"/api/users/resetpassword - {\"newPass\":\"123\",\"cNewPass\":\"123\"}","service":"request-logging"}
