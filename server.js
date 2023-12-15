@@ -10,6 +10,7 @@ import OrderRouter from "./src/features/order/order.routes.js";
 // import basicAuth from "./src/middlwares/basicAuth.middleware.js";
 import jwtAuth from "./src/middlwares/jwt.middleware.js";
 import connectToMongoDB from "./src/config/mongodb.js";
+import { connectUsingMongoose } from "./src/config/mongoose.js";
 const port = 8000;
 const server = express();
 
@@ -32,5 +33,6 @@ server.use((req, res) => {
 
 server.listen(port, () => {
   console.log("server listening on port: " + port);
-  connectToMongoDB();
+  // connectToMongoDB();
+  connectUsingMongoose();
 });
