@@ -424,3 +424,6 @@
 {"level":"info","message":"/api/users/resetpassword - {\"newPass\":\"1234\",\"cNewPass\":\"123\"}","service":"request-logging"}
 {"level":"info","message":"/api/users/resetpassword - {\"newPass\":\"123\",\"cNewPass\":\"123\"}","service":"request-logging"}
 {"level":"info","message":"/api/users/resetpassword - {\"newPass\":\"123\",\"cNewPass\":\"123\"}","service":"request-logging"}
+{"level":"info","message":"/api/users/resetpassword - {\"newPass\":\"123\",\"cNewPass\":\"123\"}","service":"request-logging"}
+{"level":"info","message":"/api/users/signIn - {\"email\":\"j@3.com\",\"password\":\"1234\"}","service":"request-logging"}
+{"level":"info","message":"/api/users/signIn - {\"email\":\"j@3.com\",\"password\":\"123\"}","service":"request-logging"}
