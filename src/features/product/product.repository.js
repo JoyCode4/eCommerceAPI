@@ -3,9 +3,11 @@ import { getDB } from "../../config/mongodb.js";
 import mongoose from "mongoose";
 import { productSchema } from "./product.schema.js";
 import { reviewSchema } from "./review.schema.js";
+import { categorySchema } from "./category.schema.js";
 
 const ProductModel = mongoose.model("Product", productSchema);
 const ReviewModel = mongoose.model("Review", reviewSchema);
+const CategoryModel = mongoose.model("Category", categorySchema);
 
 const collectionDB = "products";
 export default class ProductRepository {
@@ -27,11 +29,22 @@ export default class ProductRepository {
     }
   }
 
-  static async add(newProduct) {
+  static async add(productData) {
     try {
-      const db = getDB();
-      const collection = db.collection(collectionDB);
-      await collection.insertOne(newProduct);
+      const newProduct = new ProductModel(productData);
+      await newProduct.save();
+
+      await CategoryModel.updateMany(
+        {
+          _id: { $in: productData.categories },
+        },
+        {
+          $push: {
+            products: new ObjectId(newProduct._id),
+          },
+        }
+      );
+
       return newProduct;
     } catch (err) {
       throw new Error(err);

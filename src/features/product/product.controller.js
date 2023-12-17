@@ -9,13 +9,13 @@ export default class ProductController {
 
   async addProduct(req, res) {
     try {
-      const { name, desc, category, price, sizes } = req.body;
+      const { name, desc, categories, price, sizes } = req.body;
       console.log(req.file.filename);
       const newProduct = {
         name,
         desc,
         imageUrl: req.file.filename,
-        category,
+        categories: categories.split(","),
         price: parseFloat(price),
         sizes: sizes.split(","),
       };
