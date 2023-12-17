@@ -30,4 +30,21 @@ export default class LikeRepository {
       throw new Error(err);
     }
   }
+
+  static async getLikes(type, id) {
+    try {
+      const likes = await LikeModel.find({
+        likeable: new ObjectId(id),
+        on_model: type,
+      })
+        .populate("user")
+        .populate({
+          path: "likeable",
+          model: type,
+        });
+      return likes;
+    } catch (err) {
+      throw new Error(err);
+    }
+  }
 }

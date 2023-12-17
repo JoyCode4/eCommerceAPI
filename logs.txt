@@ -444,3 +444,14 @@
 {"level":"info","message":"/api/products/ - {}","service":"request-logging"}
 {"level":"info","message":"/api/products/ - {}","service":"request-logging"}
 {"level":"info","message":"/api/products/ - {}","service":"request-logging"}
+{"level":"info","message":"/api/users/signIn - {\"email\":\"j@3.com\",\"password\":\"123\"}","service":"request-logging"}
+{"level":"info","message":"/api/products/ - {}","service":"request-logging"}
+{"level":"info","message":"/api/likes/65572a524b601232e30868dc - {}","service":"request-logging"}
+{"level":"info","message":"/api/likes - {\"id\":\"65572a524b601232e30868dc\"}","service":"request-logging"}
+{"level":"info","message":"/api/likes - {\"id\":\"65572a524b601232e30868dc\",\"type\":\"Product\"}","service":"request-logging"}
+{"level":"info","message":"/api/likes - {\"id\":\"657eab4cd9ed3db952aa64b6\",\"type\":\"Category\"}","service":"request-logging"}
+{"level":"info","message":"/api/likes?id=657f349bdc9820c189a05d53&type=Product - {}","service":"request-logging"}
+{"level":"info","message":"/api/likes?id=657f349bdc9820c189a05d53&type=Product - {}","service":"request-logging"}
+{"level":"info","message":"/api/likes?id=657f349bdc9820c189a05d53&type=Category - {}","service":"request-logging"}
+{"level":"info","message":"/api/likes?id=657f349bdc9820c189a05d53&type=Product - {}","service":"request-logging"}
+{"level":"info","message":"/api/likes?id=657f34dbdc9820c189a05d55&type=Category - {}","service":"request-logging"}

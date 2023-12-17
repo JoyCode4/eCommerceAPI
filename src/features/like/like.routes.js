@@ -4,5 +4,6 @@ const router = express.Router();
 
 const likeController = new LikeController();
 router.post("/", likeController.likeItems);
+router.get("/", likeController.getLikes);
 
 export default router;
