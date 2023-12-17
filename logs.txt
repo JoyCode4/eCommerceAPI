@@ -427,3 +427,15 @@
 {"level":"info","message":"/api/users/resetpassword - {\"newPass\":\"123\",\"cNewPass\":\"123\"}","service":"request-logging"}
 {"level":"info","message":"/api/users/signIn - {\"email\":\"j@3.com\",\"password\":\"1234\"}","service":"request-logging"}
 {"level":"info","message":"/api/users/signIn - {\"email\":\"j@3.com\",\"password\":\"123\"}","service":"request-logging"}
+{"level":"info","message":"/api/users/signIn - {\"email\":\"j@3.com\",\"password\":\"123\"}","service":"request-logging"}
+{"level":"info","message":"/api/products/ - {}","service":"request-logging"}
+{"level":"info","message":"/api/products/rate - {\"productId\":\"65572a924b601232e30868dd\",\"rating\":3}","service":"request-logging"}
+{"level":"info","message":"/api/products/rate - {\"productId\":\"65572a924b601232e30868dd\",\"rating\":3}","service":"request-logging"}
+{"level":"info","message":"/api/users/signIn - {\"email\":\"j@3.com\",\"password\":\"123\"}","service":"request-logging"}
+{"level":"info","message":"/api/products/rate - {\"productId\":\"65572a924b601232e30868dd\",\"rating\":3}","service":"request-logging"}
+{"level":"info","message":"/api/products/65572a924b601232e30868dd - {}","service":"request-logging"}
+{"level":"info","message":"/api/products/65572a924b601232e30868dd - {}","service":"request-logging"}
+{"level":"info","message":"/api/products/65572a924b601232e30868dd - {}","service":"request-logging"}
+{"level":"info","message":"/api/products/ - {}","service":"request-logging"}
+{"level":"info","message":"/api/products/rate - {\"productId\":\"65572a524b601232e30868dc\",\"rating\":3}","service":"request-logging"}
+{"level":"info","message":"/api/products/rate - {\"productId\":\"65572a524b601232e30868dc\",\"rating\":5}","service":"request-logging"}

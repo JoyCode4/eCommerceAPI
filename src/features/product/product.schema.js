@@ -24,4 +24,10 @@ export const productSchema = new mongoose.Schema({
   inStock: {
     type: Number,
   },
+  reviews: [
+    {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "Review",
+    },
+  ],
 });

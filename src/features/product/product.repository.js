@@ -1,13 +1,17 @@
 import { ObjectId } from "mongodb";
 import { getDB } from "../../config/mongodb.js";
+import mongoose from "mongoose";
+import { productSchema } from "./product.schema.js";
+import { reviewSchema } from "./review.schema.js";
+
+const ProductModel = mongoose.model("Product", productSchema);
+const ReviewModel = mongoose.model("Review", reviewSchema);
 
 const collectionDB = "products";
 export default class ProductRepository {
   static async getAll() {
     try {
-      const db = getDB();
-      const collection = db.collection(collectionDB);
-      const products = await collection.find({}).toArray();
+      const products = await ProductModel.find();
       return products;
     } catch (err) {
       throw new Error(err);
@@ -16,9 +20,7 @@ export default class ProductRepository {
 
   static async get(id) {
     try {
-      const db = getDB();
-      const collection = db.collection(collectionDB);
-      const product = await collection.findOne({ _id: new ObjectId(id) });
+      const product = await ProductModel.findById(id);
       return product;
     } catch (err) {
       throw new Error(err);
@@ -59,63 +61,25 @@ export default class ProductRepository {
 
   static async rate(userId, productId, rating) {
     try {
-      const db = getDB();
-      const collectionProduct = db.collection(collectionDB);
-
-      // const product = await collectionProduct.findOne({
-      //   _id: new ObjectId(productId),
-      // });
-      // const userRating = product?.ratings?.find((r) => r.userId == userId);
-      // if (userRating) {
-      //   const status = await collectionProduct.updateOne(
-      //     {
-      //       _id: new ObjectId(productId),
-      //       "ratings.userId": new ObjectId(userId),
-      //     },
-      //     {
-      //       $set: {
-      //         "ratings.$.rating": rating,
-      //       },
-      //     }
-      //   );
-      //   console.log(status);
-      // } else {
-      //   await collectionProduct.updateOne(
-      //     {
-      //       _id: new ObjectId(productId),
-      //     },
-      //     {
-      //       $push: {
-      //         ratings: {
-      //           userId: new ObjectId(userId),
-      //           rating,
-      //         },
-      //       },
-      //     }
-      //   );
-      // }
-
-      await collectionProduct.updateOne(
-        {
-          _id: new ObjectId(productId),
-        },
-        {
-          $pull: {
-            ratings: { userId: new ObjectId(userId) },
-          },
-        }
-      );
-
-      await collectionProduct.updateOne(
-        {
-          _id: new ObjectId(productId),
-        },
-        {
-          $push: {
-            ratings: { userId: new ObjectId(userId), rating },
-          },
-        }
-      );
+      const product = await ProductModel.findById(productId);
+      if (!product) {
+        throw new Error("Product not found.");
+      }
+      const review = await ReviewModel.findOne({
+        product: new ObjectId(productId),
+        user: new ObjectId(userId),
+      });
+      if (review) {
+        review.rating = rating;
+        await review.save();
+      } else {
+        const newReview = new ReviewModel({
+          product: new ObjectId(productId),
+          user: new ObjectId(userId),
+          rating: rating,
+        });
+        await newReview.save();
+      }
     } catch (err) {
       throw new Error(err);
     }
